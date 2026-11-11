@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: 'DM Sans', sans-serif; color: #292c27; background: #f7f6f1; font-synthesis: none; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 0; background: #f7f6f1; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+::selection { background: #f8d3c4; color: #8d3218; }
+.container-shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.gradient-text { background: linear-gradient(100deg,#f26a3d,#d74825); -webkit-background-clip: text; color: transparent; }
+.product-image { transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.product-card:hover .product-image { transform: scale(1.07); }
+.fade-up { animation: fadeUp .55s ease both; }
+.category-product-enter { animation: categoryProductIn .55s cubic-bezier(.2,.8,.2,1) both; }
+.category-section { scroll-margin-top: 110px; }
+.page-intro { animation: introScreenOut 5s linear forwards; }
+.intro-content { animation: introContentIn .8s cubic-bezier(.2,.8,.2,1) both; }
+.intro-logo { animation: introLogoIn 1s cubic-bezier(.2,.8,.2,1) both, introLogoFloat 2.8s 1s ease-in-out infinite alternate; }
+.intro-progress { animation: introProgress 5s linear forwards; }
+.intro-orbit-one { animation: introOrbit 16s linear infinite; }
+.intro-orbit-two { animation: introOrbit 11s linear infinite reverse; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes categoryProductIn { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes introScreenOut { 0%, 90% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+@keyframes introContentIn { from { opacity: 0; transform: translateY(20px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes introLogoIn { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: scale(1); } }
+@keyframes introLogoFloat { from { translate: 0 0; } to { translate: 0 -7px; } }
+@keyframes introProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes introOrbit { from { rotate: 0deg; } to { rotate: 360deg; } }
+.hero-copy { animation: heroCopyIn .65s cubic-bezier(.2,.8,.2,1) both; }
+.hero-image-enter { animation: heroImageIn .85s cubic-bezier(.2,.8,.2,1) both; }
+.hero-tag-enter { animation: heroTagIn .7s .2s cubic-bezier(.2,.8,.2,1) both; }
+.hero-campaign-image { animation: heroImageFloat 7s ease-in-out infinite alternate; }
+.hero-orbit { animation: orbitDrift 12s ease-in-out infinite alternate; }
+.hero-orbit-delayed { animation-delay: -5s; animation-duration: 15s; }
+.hero-indicator[aria-current="true"] { position: relative; overflow: hidden; }
+.hero-indicator[aria-current="true"]::after { position: absolute; inset: 0; border-radius: inherit; background: #f26a3d; content: ''; transform-origin: left; animation: indicatorFill 6.5s linear both; }
+.hero-indicator-paused[aria-current="true"]::after { animation-play-state: paused; }
+@keyframes heroCopyIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes heroImageIn { from { opacity: .35; transform: scale(1.07) translateX(14px); } to { opacity: 1; transform: scale(1) translateX(0); } }
+@keyframes heroTagIn { from { opacity: 0; transform: translateY(12px) rotate(2deg); } to { opacity: 1; transform: translateY(0) rotate(0); } }
+@keyframes heroImageFloat { from { transform: scale(1); } to { transform: scale(1.045); } }
+@keyframes orbitDrift { from { translate: 0 0; scale: 1; } to { translate: -14px 10px; scale: 1.04; } }
+@keyframes indicatorFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .page-intro { animation: none; }
+  .intro-content, .intro-logo, .intro-orbit-one, .intro-orbit-two { animation: none; }
+  .intro-progress { animation: none; transform: scaleX(1); }
+}
